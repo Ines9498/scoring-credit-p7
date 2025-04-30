@@ -23,9 +23,13 @@ if uploaded_file:
     st.markdown(f"### Client sélectionné : `{client_id}`", unsafe_allow_html=True)
 
     # Bouton pour lancer la prédiction
+    # Bouton pour lancer la prédiction
     if st.button("🚀 Lancer la prédiction"):
+        API_URL = "https://scoring-api-i20f.onrender.com/predict/"
         files = {'file': ('application_test.csv', uploaded_file.getvalue())}
-        response = requests.post("http://127.0.0.1:8001/predict/", files=files)
+        response = requests.post(API_URL, files=files)
+
+
 
         if response.status_code == 200:
             result = response.json()
