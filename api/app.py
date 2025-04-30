@@ -1,4 +1,5 @@
 # ✅ Librairies essentielles
+from data_loader import load_all_data
 import pandas as pd
 import numpy as np
 import re
@@ -16,7 +17,7 @@ from contextlib import contextmanager
 from utils import feature_engineering, clean_column_names
 
 app = FastAPI()
-
+load_all_data()
 # Charger les fichiers constants
 bureau = pd.read_csv('data/original/bureau.csv')
 bureau_balance = pd.read_csv('data/original/bureau_balance.csv')
